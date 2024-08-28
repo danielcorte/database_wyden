@@ -1,0 +1,71 @@
+MODELO RELACIONAL
+  - Relação é um termo usado na literatura forma da área de banco de dados.
+    No contexto comercial, usa-se informalmente o termo tabela
+
+  - O modelo relacional representa o banco de dados como uma coleção de 
+    relações
+
+  - Ou seja, RELAÇÃO é uma TABELA
+
+COMPONENTES DE UMA TABELA
+
+______________________________________________________
+                        ALUNO                        |
+RA         | NOME    | CPF            | DTNASCIMENTO |
+-----------------------------------------------------|
+20240xxxxx | Fulano  | 000.000.000-26 | 00/00/0000   |
+20240xxxxx | Fulano  | 000.000.000-26 | 00/00/0000   |
+20240xxxxx | Fulano  | 000.000.000-26 | 00/00/0000   |
+20240xxxxx | Fulano  | 000.000.000-26 | 00/00/0000   |
+20240xxxxx | Fulano  | 000.000.000-26 | 00/00/0000   |
+______________________________________________________
+
+NOMES DE TABELAS
+  - Significativo e único no banco de dados
+  - Formato
+  - Relação com o modelo E-R
+  - Tipo de dado (define o domínio da coluna ou domínio do campo)
+
+LINHAS DE UMA TABELA
+  - Ocorrência de dados de uma tabela
+  - Registro
+  - Tupla
+  - Semântica entre um registro e o nome da tabela
+
+ORGANIZAÇÃO DAS TABELAS EM UM BANCO DE DADOS
+  - EM alguns SGBDs como Oracle e PostgreSQL as tabelas podem 
+    ser agrupadas em uma organização lógica chama Schema
+  - ATENÇÃO: Não vamos traduzir schema ao pé da letra como 
+    esquema para não confundir com as fases do projeto de 
+    banco de dados (esquema conceitual, esquema lógico e esquema físico)
+_________________________
+|  []-[]       []       |
+|  |   |        |       |
+|  [] [] ----- []       |
+|  schema01    schema02 |
+-------------------------
+      dbfinanceiro
+
+ORGANIZAÇÃO DOS BANCOS DE DADOS EM UM SGBD
+Instância de um SGBD (Oracle, PostgreSQL, MySQL, ...)
+Exemplo: db-prod-inst01.acme-corporation.com
+
+PC = { dbfinanceiro, dbseguros, dbsaude }
+
+Instalação de um SGBD em um servidor é uma instância
+
+SQL é uma linguagem de CONSULTA
+mySQL, postgreSQL -> SGBD
+
+CHAVE PRIMARIA
+  - Campo que define a singularidade de cada registro em uma tabela
+  - Propriedades:
+
+CHAVE MÍMIMA 
+  - Uma chave primária deve ser mínima 
+  - Todas as colunas que formam a chave primária devem ser necessárias
+    e suficientes para diferenciar uma linha das demais na tabela. 
+    Portanto 
+
+CHAVE ESTRANGEIRA
+  - Integridade referencial: RESTRIÇ
