@@ -60,6 +60,17 @@ mySQL, postgreSQL -> SGBD
 CHAVE PRIMARIA
   - Campo que define a singularidade de cada registro em uma tabela
   - Propriedades:
+  	  - Unicidade
+      - Monovalorado
+      - Obrigatório
+
+CHAVES CANDIDATAS E ALTERNATIVAS
+  - Chaves candidatas: são chaves/atributos/colunas que podem
+    ser escolhidas como chave primária
+  - Chaves alternativas: A partir do momento em que escolhemos a chave primária
+                         entre as chaves candidatas chamamos de chaves alternativas
+                         o restante das chaves candidatas que não foram escolhidas
+                         como chave primária.
 
 CHAVE MÍMIMA 
   - Uma chave primária deve ser mínima 
@@ -68,4 +79,9 @@ CHAVE MÍMIMA
     Portanto 
 
 CHAVE ESTRANGEIRA
-  - Integridade referencial: RESTRIÇ
+  - Integridade referencial: RESTRIÇÕES IMPOSTAS PELA CHAVE ESTRANGEIRA:
+    - Inclusão de linha na tabela que pussui chave estrangeira
+    - Alteração de valor da chave estrangeira
+    - Exclusão de linha em tabela que contém chave primária referenciada
+      pela chave estrangeira
+    - Alteração de valor da chave primária referenciada pela chave estrangeira
