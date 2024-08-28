@@ -1,0 +1,63 @@
+1) Que invenção da IBM permitiu a utilização dos computadores na implementação de sistemas de informação, 
+inaugurando a chamada era do processamento de dados?
+
+a) O disco magnético
+b) A memória RAM
+c) Os arquivos eletrônicos
+d) O modelo relacional de dados
+e) O microcomputador
+
+2) Qual conjunto de comando da SQL abaixo serve para o administrador do banco de dados gerenciar os metadados de um banco de dados?
+
+a) Create, Modify, Delete
+b) Insert, Update, Delete
+c) Create, Alter, Drop
+d) Create, Alter, Delete
+e) Insert, Alter, Remove
+
+3) NoSQL é um termo usado para se referir a uma categoria de sistemas de gerenciamento de banco de dados (SGBDs) que são diferentes dos
+bancos de dados relacionais tradicionais. O que significa noSQL em banco de dados?
+
+a) Não somente SQL
+b) Nenhum SQL é permitido
+c) Nenhuma base de dados SQL
+d) Novo SQL
+e) Apenas SQL é permitido
+
+4) Qual das alternativas abaixo não é uma propriedade desejada das transações em um sistema de banco de dados?
+
+a) Atomicidade
+b) Consistência
+c) Integridade
+d) Durabilidade 
+e) Isolamento
+
+5) Edgar F. Codd é uma figura icônica no mundo da ciência da computação e no desenvolvimento de sistemas de gerenciamento de banco de
+dados. Qual foi a contribuição mais significativa de Edgar F. Codd para a evolução dos sistemas de banco de dados?
+
+a) Introdução do modelo de grafos
+b) Introdução do conceito de Big Data
+c) Desenvolvimento do primeiro SGBD comercial
+d) Criação do modelo relacional de banco de dados
+e) Implementação de banco de dados navegacionais
+
+6) Analise as afirmações abaixo e responda qual alternativa corresponde a afirmações verdadeiras sobre os módulos
+de um SGBD:
+I - O catálogo armazena os metadados do sistema de banco de dados.
+II - Os programas de aplicação são pré-compilados para separar os comandos da linguagem de programação dos comandos
+de manipulação de dados.
+III - As transações são compiladas após passarem pelo otimizador de consultas.
+
+a) Somente as afirmações II e III estão corretas
+b) Somente as afirmações I e II estão corretas
+c) Somente a afirmação III está correta
+d) Somente a afirmação I está correta
+e) Somente a afirmação II está correta
+
+7) Qual conjunto de comandos da SQL abaixo serve para manipular o estado ou a instância do banco de dados?
+
+a) Insert, Update, Delete
+b) Insert, Alter, Delete
+c) Create, Alter, Drop
+d) Create, Update, Drop
+e) Creste, Alter, Delete
