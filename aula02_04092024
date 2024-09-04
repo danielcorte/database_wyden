@@ -1,0 +1,24 @@
+Mapeamento Conceitual/Lógico
+
+Cada entidade do modelo conceitual se toruma uma tabela no modelo lógico
+
+O relacionamento em geral define que uma chave estrangeira deve ser inserida na tabela relacionada.
+
+O relacionamento ira virar uma tabela quando for (n, n)
+
+Mapeamento de relacionamentos:
+  Possibilidade de relacionamento baseado na cardinalidade máxima
+
+Cardinalidade mínima indica a obrigatoriedade do campo 
+1:1
+
+1:n
+  - Identificar a tabela T do lado N
+  - Adicionar chave estrangeira na tabela T do lado N referente à chave primária da tabela do lado lado 1
+  - Cada atributo simples do relacionamento vira uma coluna na tabela T
+
+n:n
+  - Cada relacionamento vira uma tabela T.
+  - A tabela T possuirá chaves estrangeiras originadas das chaves primárias das tabelas participantes do relacionamento.
+  - A tabela T possuirá chave primária composta pelas chaves estrangeiras criadas no passo anterior 
+  - Cada atributo simples do relacionamento vira uma coluna na tabela T
