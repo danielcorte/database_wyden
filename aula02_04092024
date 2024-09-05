@@ -11,6 +11,10 @@ Mapeamento de relacionamentos:
 
 Cardinalidade mínima indica a obrigatoriedade do campo 
 1:1
+  - Cardinalidade (0,1):(0,1): priorizar adição de coluna(s). Alternativa: tabela própria.
+  - A chave estrangeira pode estar em qualquer das tabelas relacionadas
+  - Cardinalidade (0,1):(1,1): priorizar fusão de tabelas. Alternativa: adição de colunas.
+  - Cardinalidade (1,1):(1,1): fusão de tabelas
 
 1:n
   - Identificar a tabela T do lado N
