@@ -1,0 +1,245 @@
+# DML
+
+## O que é DML?
+
+DML (Data Manipulation Language) é um subconjunto da SQL que manipula dados em tabelas, permitindo operações como inserção, atualização e exclusão
+
+## Principais comandos DML
+
+Os três principais comandos DML são: INSERT (inserir), UPDATE (atualizar) e DELETE (excluir) registros de uma tabela
+
+## Manipulação de Dados
+
+Esses comandos são essenciais para modificar e gerenciar os dados em sistemas de banco de dados relacionais 
+
+## Sintaxe básica
+
+O comando INSERT insere novos registros em uma tabela: INSERT INTO tabela (colunas) VALUES (valores);
+
+## Exemplo de Uso
+
+Exemplo: INSERT INTO Clientes (nome, idade)
+
+          VALUES (’João’, 30);
+
+Esse comando adiciona um novo cliente à tabela Clientes.
+
+## Inserção Múltipla
+
+Para inserir várias linhas ao mesmo tempo, utilize: 
+
+INSERT INTO tabela (colunas) VALUES (valores1), (valores2);
+
+## Comandos da aula
+
+### Conectando ao banco de dados
+
+psql --host localhost --port 5432 --dbname postgres --username postgres
+
+### Criando banco de dados
+
+CREATE database ara0040_2;
+
+\connect ara0040_2
+
+### Criando tabela
+
+CREATE TABLE departamento (
+coddepto INT PRIMARY KEY,
+nome VARCHAR(50)
+);
+
+### Criando tabela
+
+CREATE TABLE empregado (
+codempregado INT PRIMARY KEY,
+nome CHAR(20) NOT NULL,
+coddepto INT
+);
+
+### Alterando a coluna empregado para FK
+
+ALTER TABLE empregado
+ADD FOREIGN KEY(coddepto)
+REFERENCES departamento (coddepto);
+
+_________________________________________________________________________________________________
+
+### Display Table (mostra somente a tabela)
+
+\dt
+
+```
+        List of relations
+
+```
+
+Schema |     Name     | Type  |  Owner
+--------+--------------+-------+----------
+public | departamento | table | postgres
+public | empregado    | table | postgres
+(2 rows)
+
+_________________________________________________________________________________________________
+
+### Estrutura da tabela (describe)
+
+\d departamento
+
+```
+                Table "public.departamento"
+
+```
+
+Column  |         Type          | Collation | Nullable | Default
+----------+-----------------------+-----------+----------+---------
+coddepto | integer               |           | not null |
+nome     | character varying(50) |           |          |
+Indexes:
+"departamento_pkey" PRIMARY KEY, btree (coddepto)
+Referenced by:
+
+_________________________________________________________________________________________________
+
+TABLE "empregado" CONSTRAINT "empregado_coddepto_fkey" FOREIGN KEY (coddepto) REFERENCES departamento(coddepto)
+
+### 
+
+INSERT INTO departamento (coddepto,nome) VALUES (1, 'Financeiro');
+
+_________________________________________________________________________________________________
+
+### Mostrar tabela departamento
+
+SELECT * FROM departamento;
+coddepto |    nome
+----------+------------
+1 | Financeiro
+(1 row)
+
+_________________________________________________________________________________________________
+
+### Criando novo registro
+
+INSERT INTO departamento (coddepto,nome) VALUES (1, 'Financeiro');
+
+### Criando vários registros de uma vez
+
+INSERT INTO departamento (coddepto,nome)
+VALUES
+(3,'Contábil'),
+(4,'TI'),
+(5,'Jurídico'),
+(6,'RH');
+INSERT 0 4
+
+## Comando UPDATE
+
+### Sintaxe básica
+
+UPDATE tabela SET coluna = valor WHERE 
+
+condição;  Atualiza registros com base em uma condição.
+
+### Exemplo de Uso
+
+Exemplo: UPDATE Clientes SET idade = 31 WHERE nome = ‘João’; #Isso atualiza a idade de João na tabela clientes
+
+### Cuidados ao Usar
+
+Sempre utilize a cláusula WHERE ao utilizar dados para evitar modificações em todas as linhas.
+
+### Forma errada de atualizar
+
+START TRANSACTION;
+
+UPDATE departamento SET nome = 'Tecnologia da Informação'; 
+
+SELECT * FROM departamento;
+coddepto |           nome
+----------+--------------------------
+1 | Tecnologia da Informação
+2 | Tecnologia da Informação
+3 | Tecnologia da Informação
+4 | Tecnologia da Informação
+5 | Tecnologia da Informação
+6 | Tecnologia da Informação
+(6 rows)
+
+ROLLBACK
+
+SELECT * FROM departamento;
+coddepto |      nome
+----------+----------------
+1 | Financeiro
+2 | Administrativo
+3 | Contábil
+4 | TI
+5 | Jurídico
+6 | RH
+(6 rows)
+
+### Forma certa de atualizar
+
+UPDATE departamento SET nome = 'Tecnologia da Informação' WHERE nome = 'TI';
+
+SELECT * FROM departamento;
+coddepto |           nome
+----------+--------------------------
+1 | Financeiro
+2 | Administrativo
+3 | Contábil
+5 | Jurídico
+6 | RH
+4 | Tecnologia da Informação
+(6 rows)
+
+_________________________________________________________________________________________________
+
+### Formas diferentes de ordenar minha tabela
+
+SELECT * FROM departamento ORDER BY coddepto;
+coddepto |           nome
+----------+--------------------------
+1 | Financeiro
+2 | Administrativo
+3 | Contábil
+4 | Tecnologia da Informação
+5 | Jurídico
+6 | RH
+(6 rows)
+
+SELECT * FROM departamento ORDER BY coddepto DESC;
+coddepto |           nome
+----------+--------------------------
+6 | RH
+5 | Jurídico
+4 | Tecnologia da Informação
+3 | Contábil
+2 | Administrativo
+1 | Financeiro
+(6 rows)
+
+SELECT * FROM departamento ORDER BY nome;
+coddepto |           nome
+----------+--------------------------
+2 | Administrativo
+3 | Contábil
+1 | Financeiro
+5 | Jurídico
+6 | RH
+4 | Tecnologia da Informação
+(6 rows)
+
+SELECT * FROM departamento ORDER BY nome DESC;
+coddepto |           nome
+----------+--------------------------
+4 | Tecnologia da Informação
+6 | RH
+5 | Jurídico
+1 | Financeiro
+3 | Contábil
+2 | Administrativo
+(6 rows)
+
+_________________________________________________________________________________________________
