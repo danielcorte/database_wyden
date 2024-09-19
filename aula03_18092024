@@ -243,3 +243,81 @@ coddepto |           nome
 (6 rows)
 
 _________________________________________________________________________________________________
+## Comando DELETE
+
+### Sintaxe básica
+
+DELETE FROM tabela WHERE condição; Remove registros com base em uma condição.
+
+### Exemplo de Uso
+
+Exemplo: DELETE FROM Clientes WHERE nome = ‘João’; Isso remove o cliente ‘João’ da tabela Clientes.
+
+### Cuidados ao Usar
+
+Sempre utilize a cláusula WHERE para evitar remover todos os registros da tabela por acidente
+
+### Deletando o Jurídico do departamento
+
+DELETE FROM departamento WHERE coddepto=5;
+
+SELECT * FROM departamento;
+coddepto |           nome
+----------+--------------------------
+1 | Financeiro
+2 | Administrativo
+3 | Contábil
+6 | RH
+4 | Tecnologia da Informação
+(5 rows)
+
+### Inserindo novo funcionário errado
+
+INSERT INTO empregado (codempregado,nome,coddepto)
+ara0040_2-# VALUES
+ara0040_2-# (1,'Maicon da Silva',5);
+
+ERROR:  insert or update on table "empregado" violates foreign key constraint "empregado_coddepto_fkey"
+DETAIL:  Key (coddepto)=(5) is not present in table "departamento".
+
+### Inserindo novo funcionário certo
+
+INSERT INTO empregado (codempregado,nome,coddepto)
+ara0040_2-# VALUES
+ara0040_2-# (1,'Maicon da Silva',2);
+
+INSERT 0 1
+
+### Inserindo vários usuários
+
+INSERT INTO empregado (codempregado, nome, coddepto) VALUES
+(2, 'Lucas Silva', 1),
+(3, 'Mariana Oliveira', 2),
+(4, 'Gabriel Santos', 3),
+(5, 'Ana Souza', 6),
+(6, 'Fernanda Lima', 4),
+(7, 'Rafael Costa', 1),
+(8, 'Isabela Pereira', 2),
+(9, 'Felipe Almeida', 3),
+(10, 'Camila Rodrigues', 6),
+(11, 'Thiago Martins', 4),
+(12, 'Juliana Fernandes', 1),
+(13, 'Ricardo Gomes', 2),
+(14, 'Larissa Rocha', 3),
+(15, 'Eduardo Dias', 6),
+(16, 'Tatiane Alves', 4),
+(17, 'Bruno Moreira', 1),
+(18, 'Natália Ribeiro', 2),
+(19, 'Gustavo Mendes', 3),
+(20, 'Aline Martins', 6),
+(21, 'Diego Nascimento', 4),
+(22, 'Sofia Costa', 1),
+(23, 'Leonardo Pires', 2),
+(24, 'Renata Ferreira', 3),
+(25, 'Vinícius Andrade', 6),
+(26, 'Priscila Cardoso', 4),
+(27, 'Marcelo Rocha', 1),
+(28, 'Cláudia Lima', 2),
+(29, 'André Santos', 3),
+(30, 'Patrícia Alves', 6),
+(31, 'Júlio César', 4);
